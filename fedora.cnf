@@ -1,0 +1,49 @@
+CPUSERIAL    002623                   # CPU serial number
+CPUMODEL    2097                       # CPU model number
+MODEL           EMULATOR            # STSI returned model
+PLANT            ZZ                           # STSI returned plant
+MANUFACTURER HRC                # STSI returned manufacturer
+LPARNAME    HERCULES            # DIAG 204 returned lparname
+CPUVERID     FD                          # CPU Version Identification
+MAINSIZE      2048                       # Main storage size in megabytes
+XPNDSIZE     0                             # Expanded storage size in megabytes
+NUMCPU       2                             # Number of CPUs
+ARCHMODE  z/Arch                    # Architecture mode S/370, ESA/390 or z/Arch
+ARCHLVL z/ARCH
+ECPSVM       NO                         # VM Assist : NO or Level (20 recommended)
+OSTAILOR    LINUX                    # OS tailoring
+SYSEPOCH  1900                       # Base year for initial TOD clock
+PANRATE      FAST                     # Panel refresh rate
+#HTTPPORT   8081                      # 127.0.0.1:8081
+CNSLPORT   3270                      # TCP port number to which consoles connect
+#MODPATH /usr/lib64/hercules
+LDMOD hdtqeth.so 
+LDMOD dyncrypt.so
+#   .-----------------------Device number
+#   |     .-----------------Device type
+#   |     |       .---------File name and parameters
+#   |     |       |
+#   V     V       V
+# ----    ----    --------------------
+#0009    3215-C  / noprompt
+#000C    3505    images/kernel.img images/generic.prm.kslvm images/initrd.img autopad
+#001F    3270
+0600.3 QETH ipaddr 192.168.200.4/24
+# root's password is "fedora"
+#
+# dasdinit -bz2 -r linux-fba.130 9336 16777216
+# or
+# dd if=/dev/zero of=linux-fba.130.raw bs=1 count=0 seek=8G
+# dasdcopy -o CFBA -bz2 -r linux-fba.130.raw linux-fba.130
+#0130    9336    dasd/linux-fba.130 
+#
+# dasdinit -bz2 -linux linux-ckd.130 3390-9 LNX000
+0130    3390     dasd/linux-ckd.130
+#
+# CTC network
+# run "iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -d 0.0.0.0/0 -j MASQUERADE"
+#     "echo 1 > /proc/sys/net/ipv4/ip_forward"
+# for allowing the Fedora VM to access external networks
+#0600.3 QETH
+#0600.2 CTCI 192.168.200.3 192.168.200.4
+#0600.2    3088 CTCI /dev/net/tun 1492 192.168.200.3 192.168.200.4 255.255.255.255
