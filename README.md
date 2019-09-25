@@ -2,6 +2,8 @@
 
 These are some very simple but specific helper scripts and configurations to install F30 for s390x inside the hercules emulator.
 
+How simple?  **The instructions below should give you a running F30 s390x instance with 6 commands.**
+
 I am by no means expert in mainframe or hecules.  Corrections and improvements welcome.
 
 This was inspired by Daniel Horak's earlier work with F20 which he documented here:
