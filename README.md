@@ -41,7 +41,23 @@ If you end up in an emergency shell, you can interact with linux by prepending a
 
 `herc =====> !ps xa`
 
-For some reason, the emulator doesn't fully shut down for me when the install is finished.  However, the final Anaconda log messages appear, and the MIPS value goes way down.  At this point, you can quit and then restart the emulator.  e.g.:
+If all goes well, at the completion of install, Anaconda will shutdown the guest and the emulator will halt.  For me it looks like this
+
+```
+  7220.162678! anaconda 1624!: .                                                                                                                                                                   
+  7220.167409! anaconda 1624!: Generating initramfs                                                                                                                                                
+  7279.225390! anaconda 1624!: ..                                                                                                                                                                  
+  7279.228380! anaconda 1624!: Running post-installation scripts                                                                                                                                   
+  7283.780539! anaconda 1624!: .                                                                                                                                                                   
+  7283.783219! anaconda 1624!: Storing configuration files and kickstarts                                                                                                                          
+  7284.148649! anaconda 1624!: ..                                                                                                                                                                  
+HHC00006I SCLP console interface inactive                                                                                                                                                          
+HHC00814I Processor CP00: SIGP Stop                             (05) CP01, PARM 0000000000000000: CC 0                                                                                             
+HHC00814I Processor CP00: SIGP Stop                             (05) CP00, PARM 0000000000000000: CC 0                                                                                             
+herc =====>
+```
+
+At this point, you can quit and then restart the emulator.  e.g.:
 
 `herc =====> quit`
 
