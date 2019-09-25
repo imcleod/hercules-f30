@@ -41,8 +41,11 @@ If you end up in an emergency shell, you can interact with linux by prepending a
 
 For some reason, the emulator doesn't fully shut down for me when the install is finished.  However, the final Anaconda log messages appear, and the MIPS value goes way down.  At this point, you can quit and then restart the emulator.  e.g.:
 
-```herc =====> quit
-# sudo hercules -f ./fedora.cnf```
+`herc =====> quit`
+
+and then:
+
+`# sudo hercules -f ./fedora.cnf`
 
 At this point you can IPL from the disk device we have just installed to, rather than into the install environment defined by ks.ins file.  In our configuration, this is device 130 and the command to IPL from it is the following:
 
