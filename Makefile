@@ -1,4 +1,13 @@
-.PHONY: dasd images network
+.PHONY: dasd images network help
+
+help:
+	@echo "Targets:"
+	@echo "- all:     Execute all build targets"
+	@echo "- clean:   Clean up"
+	@echo "- network: Execute network creation script"
+	@echo "- dasd:    Create the dasd"
+	@echo "- network: Create the images"
+
 all: dasd images network
 
 clean:

@@ -1,3 +1,12 @@
+help:
+	@echo "Targets:"
+	@echo "- all:             Execute all build targets"
+	@echo "- clean:           clean up"
+	@echo "- kernel.img:      Download the kernel image from Fedora"
+	@echo "- initrd.img.in:   Download the initrd.img.in file from Fedora"
+	@echo "- initrd.img:      Generate the initrd.img"
+	@echo "- initrd.addrsize: Execute the gen-size script"
+
 all: kernel.img initrd.img initrd.addrsize
 
 clean:
