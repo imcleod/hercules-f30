@@ -21,4 +21,4 @@ dasd:
 	make -C dasd
 
 images:
-	make -C images
+	make -C images all
